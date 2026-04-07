@@ -32,7 +32,17 @@ async def global_exception_handler(request, exc):
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok"}
+    from app.config import OPENAI_API_KEY, ELEVENLABS_API_KEY
+    # Only return last 4 chars for security
+    def mask(k): return f"...{k[-4:]}" if k and len(k) > 4 else "MISSING"
+    
+    return {
+        "status": "ok",
+        "keys_loaded": {
+            "openai": mask(OPENAI_API_KEY),
+            "elevenlabs": mask(ELEVENLABS_API_KEY)
+        }
+    }
 
 
 @app.post("/api/voice/chat")
