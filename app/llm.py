@@ -1,7 +1,8 @@
 import openai
 from app.config import OPENAI_API_KEY
 
-client = openai.OpenAI(api_key=OPENAI_API_KEY)
+def get_client():
+    return openai.OpenAI(api_key=OPENAI_API_KEY)
 
 SYSTEM_PROMPT = """
 أنت مساعد ذكي بتتكلم باللهجة المصرية العامية فقط.
@@ -17,6 +18,7 @@ def generate_response(transcript: str, history: list) -> str:
     messages += history
     messages.append({"role": "user", "content": transcript})
 
+    client = get_client()
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,

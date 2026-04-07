@@ -11,6 +11,18 @@
       "dest": "api/index.py"
     },
     {
+      "src": "/favicon\.ico",
+      "dest": "/favicon.png"
+    },
+    {
+      "src": "/favicon\.png",
+      "dest": "/favicon.png"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
