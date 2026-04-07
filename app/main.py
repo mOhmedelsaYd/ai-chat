@@ -19,14 +19,16 @@ app.add_middleware(
 
 @app.exception_handler(Exception)
 async def global_exception_handler(request, exc):
-    import traceback
+    # Check if it's an ElevenLabs quota error
+    if "quota_exceeded" in str(exc).lower():
+        return JSONResponse(
+            status_code=402, # Payment Required / Quota Exceeded
+            content={"error": "QUOTA_EXCEEDED", "message": "ElevenLabs API credits ran out. Please check your dashboard."}
+        )
+    
     return JSONResponse(
         status_code=500,
-        content={
-            "error": "INTERNAL_SERVER_ERROR",
-            "message": str(exc),
-            "traceback": traceback.format_exc()
-        }
+        content={"error": "INTERNAL_SERVER_ERROR", "message": "An unexpected error occurred."}
     )
 
 
