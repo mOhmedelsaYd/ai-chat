@@ -193,6 +193,44 @@
       font-family: 'Tajawal', sans-serif;
       max-width: 280px;
       line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    /* Hints Chips */
+    .hints-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      max-width: 500px;
+      animation: fade-up 0.8s ease both 0.3s;
+    }
+
+    .hint-chip {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Tajawal', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hint-chip:hover {
+      border-color: var(--accent);
+      background: rgba(0, 200, 150, 0.05);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .hint-icon {
+      font-size: 16px;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
     }
 
     /* Messages */
@@ -548,8 +586,26 @@
     <div class="chat-area" id="chatArea">
       <div class="welcome" id="welcome">
         <div class="welcome-icon">🤖</div>
-        <h2>أهلاً وسهلاً!</h2>
-        <p>اضغط على زر التسجيل وتكلم بالعامية المصرية، وأنا هرد عليك بنفس اللغة</p>
+        <h2>أهلاً بيك في سيتي ستارز!</h2>
+        <p>مساعدك الصوتي الذكي.. اسألني عن أي حاجة في المول وهرد عليك بالعامية</p>
+
+        <div class="hints-container">
+          <div class="hint-chip">
+            <span class="hint-icon">💊</span> إزاي أروح الصيدلية؟
+          </div>
+          <div class="hint-chip">
+            <span class="hint-icon">🎬</span> إيه الأفلام اللي في السينما؟
+          </div>
+          <div class="hint-chip">
+            <span class="hint-icon">🕌</span> هو المسجد فين؟
+          </div>
+          <div class="hint-chip">
+            <span class="hint-icon">🛒</span> أجيب إيه من سعودي ماركت؟
+          </div>
+          <div class="hint-chip">
+            <span class="hint-icon">👕</span> أجيب لبس أطفال منين؟
+          </div>
+        </div>
       </div>
     </div>
 
