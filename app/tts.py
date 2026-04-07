@@ -9,5 +9,6 @@ def synthesize(text: str) -> bytes:
         voice_id=ELEVENLABS_VOICE_ID,
         model_id="eleven_turbo_v2_5",
         output_format="mp3_44100_128",
+        language_code="ar",
     )
     return b"".join(audio)
